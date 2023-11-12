@@ -179,7 +179,7 @@
 
 
 
-<p id="keyDisplay">Possible key(s):</p>
+<p id="keyDisplay">Possible key(s) <i>[in order of likelihood]</i>:</p>
 
 <script>
 
@@ -197,9 +197,9 @@ var chordQualityMapping = {
 };
 
 var keyChordMapping = {
-    'C major': ['000', '023', '043', '050', '070', '075', '093', '117'], // C major: C, Dm, F, G, G7, Am, Em, Bdim
-    'Db major': ['010', '033', '053', '060', '080', '085', '103', '007'], // C#/Db major: C#, D#m, F#, G#, G#7, A#m, Fm, Bdim
-    'D major': ['020', '043', '063', '070', '090', '095', '113', '017'], // D major: D, Em, G, A, A7, Bm, F#m, C#dim
+  'C major': ['000', '023', '043', '050', '070', '075', '093', '117'],
+    'Db major': ['010', '033', '053', '060', '080', '085', '103', '007'],
+    'D major': ['020', '043', '063', '070', '090', '095', '113', '017'],
     'Eb major': ['030', '053', '073', '080', '100', '105', '003', '027'], // D#/Eb major: D#, Gm, Abm, G#, A#, A#7, Cm, Fm (Ddim replaced with Fm)
     'E major': ['040', '063', '083', '090', '110', '115', '013', '037'], // E major: E, Am, Bbm, A, B, B7, C#m, G#m (G#dim replaced with G#m)
     'F major': ['050', '073', '093', '100', '120', '125', '023', '047'], // F major: F, Gm, Am, Bb, C, C7, Dm, A#m (Edim replaced with A#m)
@@ -283,7 +283,7 @@ function updateKeyDisplay() {
     if (selectedChords.length >= 3) {
         const possibleKeys = findPossibleKeys(selectedChords);
         if (possibleKeys.length > 0) {
-            document.getElementById('keyDisplay').textContent = 'Possible keys: ' + possibleKeys.join(', ');
+            document.getElementById('keyDisplay').innerHTML = 'Possible keys:<br>' + possibleKeys.join('<br>');
         } else {
             document.getElementById('keyDisplay').textContent = 'No matching key found. Please revise selections or enter more chords.';
         }
@@ -291,6 +291,7 @@ function updateKeyDisplay() {
         document.getElementById('keyDisplay').textContent = 'Select at least 3 chords to find possible keys.';
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     for (let i = 1; i <= 6; i++) {
