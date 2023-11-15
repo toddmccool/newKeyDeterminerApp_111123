@@ -2,43 +2,50 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<style>
+  /* Existing styles */
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 10px;
+      background-color: #f4f4f4;
+  }
 
- <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 10;
-            background-color: #f4f4f4;
-        }
+  h1 {
+      text-align: center;
+  }
 
-        h1 {
-            text-align: center;
-        }
+  .chord-selection {
+      margin: 10px;
+  }
 
-        .chord-selection {
-            margin: 10px;
-        }
+  #keyDisplay {
+      margin: 15px;
+  }
 
-         #keyDisplay {
-            margin: 15px;
+  select {
+      max-width: 300px; 
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      font-size: 1em;
+  }
 
-         }
-        select {
-           max-width: 300px; 
-           width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            font-size: 1em; /* Responsive font size */
-        }
+  /* Adjustments for Mobile */
+  @media (max-width: 1200px) {
+      select {
+          font-size: 1.1em; /* Reduced font size for select elements */
+          padding: 20px; /* Reduced padding */
+          margin: 10px 0; /* Adjusted margin */
+      }
 
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            select {
-                font-size: 1.2em; /* Larger font size on smaller screens */
-            }
-        }
-    </style>
+      /* Adjust other elements as needed */
+      body, h1, .chord-selection, #keyDisplay {
+          font-size: 1em; /* Adjusted font size */
+      }
+  }
 
+</style>
 <title>Song Key Finder</title>
 </head>
 <body>
