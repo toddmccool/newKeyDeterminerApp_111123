@@ -2,6 +2,43 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+ <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 10;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .chord-selection {
+            margin: 10px;
+        }
+
+         #keyDisplay {
+            margin: 15px;
+
+         }
+        select {
+           max-width: 300px; 
+           width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 1em; /* Responsive font size */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            select {
+                font-size: 1.2em; /* Larger font size on smaller screens */
+            }
+        }
+    </style>
+
 <title>Song Key Finder</title>
 </head>
 <body>
@@ -33,10 +70,11 @@
         <option value="3">Minor</option>
         <option value="5">Dominant</option>
         <option value="7">Diminished</option>
+     
       </select>
     </div>
     
-
+    <br>
     <!-- Chord Selector 2 -->
     <div class="chord-selection">
       <select id="chord2Note">
@@ -61,9 +99,10 @@
         <option value="5">Dominant</option>
         <option value="7">Diminished</option>
       </select>
+   
     </div>
-
-
+  
+   <br>
    <!-- Chord Selector 3 -->
     <div class="chord-selection">
       <select id="chord3Note">
@@ -87,10 +126,12 @@
         <option value="3">Minor</option>
         <option value="5">Dominant</option>
         <option value="7">Diminished</option>
+        <br>
       </select>
+  
     </div>
 
-
+  <br>
 
   <!-- Chord Selector 4 -->
     <div class="chord-selection">
@@ -115,9 +156,10 @@
         <option value="3">Minor</option>
         <option value="5">Dominant</option>
         <option value="7">Diminished</option>
+        <br>
       </select>
     </div>
-
+  <br>
 
 
  <!-- Chord Selector 5 -->
@@ -143,9 +185,10 @@
         <option value="3">Minor</option>
         <option value="5">Dominant</option>
         <option value="7">Diminished</option>
+        <br>
       </select>
     </div>
-
+  <br>
  <!-- Chord Selector 6 -->
     <div class="chord-selection">
       <select id="chord6Note">
@@ -169,6 +212,7 @@
         <option value="3">Minor</option>
         <option value="5">Dominant</option>
         <option value="7">Diminished</option>
+        <br>
       </select>
     </div>
 
@@ -232,7 +276,7 @@ var keyChordMapping = {
 
 
 
-     'C Lydian - C major scale with D(7) (II)': ['000', '023', '020', '043', '050', '070', '075', '093', '117'], // C major: C, Dm, F, G, G7, Am, Em, Bdim
+     'C Lydian - C major scale with D(7) (II)': ['000',  '020', '043', '050', '070', '075', '093', '117'], // C major: C, Dm, F, G, G7, Am, Em, Bdim
     'Db Lydian - Db major scale with B(7) (II)': ['010', '033', '030', '053', '060', '080', '085', '103', '007'], // C#/Db major: C#, D#m, F#, G#, G#7, A#m, Fm, Bdim
     'D Lydian - D major scale with C(7) (II)': ['020', '043', '040', '063', '070', '090', '095', '113', '017'], // D major: D, Em, G, A, A7, Bm, F#m, C#dim
     'Eb Lydian - Eb major scale with F(7) (II)': ['030', '053', '050', '073', '080', '100', '105', '003', '027'], // D#/Eb major: D#, Gm, Abm, G#, A#, A#7, Cm, Fm (Ddim replaced with Fm)
@@ -250,7 +294,15 @@ var keyChordMapping = {
     'A mixoLydian - A major scale with G(7) (bVII)': ['020', '043', '040', '063', '070', '090', '095', '113', '017'], // D major: D, Em, G, A, A7, Bm, F#m, C#dim
     'Bb mixoLydian - Bb major scale with Ab(7) (bVII)': ['030', '053', '050', '073', '080', '100', '105', '003', '027'], // D#/Eb major: D#, Gm, Abm, G#, A#, A#7, Cm, Fm (Ddim replaced with Fm)
     'B mixoLydian - B major scale with A(7) (bVII)': ['040', '063', '060', '083', '090', '110', '115', '013', '037'], // E major: E, Am, Bbm, A, B, B7, C#m, G#m (G#dim replaced with G#m)
-    'C mixoLydian - C major scale with Bb(7) (bVII)': ['050', '073', '070', '093', '100', '120', '125', '023', '047'], // F major: F, Gm, Am, Bb, C, C7, Dm, A#m (Edim replaced with A#m)
+    
+    
+    'C mixoLydian - C major scale with Bb(7) (bVII)': ['050', '073', '070', '093', '000','100', '120', '125', '023', '047'], 
+    
+
+   
+
+
+    // F major: F, Gm, Am, Bb, C, C7, Dm, A#m (Edim replaced with A#m)
     'Db mixoLydian - Db major scale with B(7) (bVII)': ['060', '083', '080', '103', '110', '010', '015', '033', '057'], // F#/Gb major: F#, G#m, A#m, B, C#, C#7, D#m, Bm (Fdim replaced with Bm)
     'D mixoLydian - D major scale with C(7) (bVII)': ['070', '093', '090', '113', '000', '020', '025', '043', '067'], // G major: G, Am, Bm, C, D, D7, Em, Cm (Ebdim replaced with Cm)
     'Eb mixoLydian - Eb major scale with Db(7) (bVII)': ['080', '103', '100', '123', '130', '030', '035', '053', '077'], // G#/Ab major: G#, A#m, Cm, C#, D#, D#7, Fm, Dm (Gdim replaced with Dm)
@@ -273,20 +325,62 @@ var keyChordMapping = {
 'B harmonic minor (Spanish) or D Major with a Soulful III)': ['113', '020', '043', '070', '060', '065'] // B harmonic minor: Bm, Em, G, F#, G7
 };
 
+
+
+
+
+var invalidChordCombos = {
+  /* exludes a combo of the I ii and bVII */ 
+  'C Lydian - C major scale with D(7) (II)': ['023', '100'],  
+    'Db Lydian - Db major scale with B(7) (II)': ['033', '110'],  
+    'D Lydian - D major scale with C(7) (II)': ['043', '000'],  
+    'Eb Lydian - Eb major scale with F(7) (II)': ['053', '010'],  
+    'E Lydian - E major scale with F#(7) (II)': ['063', '020'],
+    'F Lydian - F major scale with G(7) (II)': ['073', '030'],
+    'Gb Lydian - Gb major scale with E(7) (II)': ['083', '040'],
+    'G Lydian - G major scale with F(7) (II)': ['093', '050'],
+    'Ab Lydian - Ab major scale with Gb(7) (II)': ['103', '060'],
+    'A Lydian - A major scale with G(7) (II)': ['113', '070'],
+    'Bb Lydian - Bb major scale with Ab(7) (II)': ['003', '080'],
+    'B Lydian - B major scale with A(7) (II)': ['013', '090'],
+
+
+     /* exludes a combo of the I II and bVII */ 
+     'G mixoLydian - G major scale with F(7) (bVII)': ['053'], // C major: C, Dm, F, G, G7, Am, Em, Bdim
+    'Ab mixoLydian - Ab major scale with Gb(7) (bVII)': ['063'],  
+    'A mixoLydian - A major scale with G(7) (bVII)': ['073'], 
+    'Bb mixoLydian - Bb major scale with Ab(7) (bVII)': ['083'],  
+    'B mixoLydian - B major scale with A(7) (bVII)': ['093'], 
+    'C mixoLydian - C major scale with Bb(7) (bVII)':  ['103'], 
+    'Db mixoLydian - Db major scale with B(7) (bVII)':  ['113'], 
+    'D mixoLydian - D major scale with C(7) (bVII)':  ['003'], 
+    'Eb mixoLydian - Eb major scale with Db(7) (bVII)':  ['013'], 
+    'E mixoLydian - E major scale with D(7) (bVII)':  ['023'], 
+    'F mixoLydian - F major scale with Eb(7) (bVII)':  ['033'], 
+    'Gb mixoLydian - Gb major scale with E(7) (bVII)':  ['043'], 
+};
 // Combine note and quality to get chord encoding
 function combineNoteAndQuality(note, quality) {
     return note + quality;
 }
-
-// Function to find possible keys
 function findPossibleKeys(selectedChords) {
     let possibleKeys = [];
+    console.log("Selected chords: ", selectedChords);
+
     Object.keys(keyChordMapping).forEach(key => {
+        console.log("Testing key: ", key);
         const isKeyMatch = selectedChords.every(chord => keyChordMapping[key].includes(chord));
-        if (isKeyMatch) {
+        console.log("Is Key Match: ", isKeyMatch);
+
+        // Modified line for invalid chord check
+        const hasInvalidChords = invalidChordCombos[key] ? invalidChordCombos[key].some(invalidChord => selectedChords.includes(invalidChord)) : false;
+        console.log("Has Invalid Chords: ", hasInvalidChords);
+
+        if (isKeyMatch && !hasInvalidChords) {
             possibleKeys.push(key);
         }
     });
+    console.log("Possible keys: ", possibleKeys);
     return possibleKeys;
 }
 
