@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   /* Existing styles */
   body {
@@ -19,9 +20,7 @@
       margin: 10px;
   }
 
-  #keyDisplay {
-      margin: 15px;
-  }
+  
 
   select {
       max-width: 300px; 
@@ -30,21 +29,27 @@
       margin: 5px 0;
       font-size: 1em;
   }
+  #keyDisplay {
+    white-space: nowrap; /* Prevent text from wrapping onto the next line */
+    overflow: hidden;   /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+    font-size: 2vw; /* Adjust this value as needed */
+}
 
-  /* Adjustments for Mobile */
-  @media (max-width: 1200px) {
-      select {
-          font-size: 1.1em; /* Reduced font size for select elements */
-          padding: 20px; /* Reduced padding */
-          margin: 10px 0; /* Adjusted margin */
-      }
+@media (max-width: 768px) {
+    #keyDisplay {
+        font-size: 3vw; /* Smaller font size for smaller devices */
+    }
+}
 
-      /* Adjust other elements as needed */
-      body, h1, .chord-selection, #keyDisplay {
-          font-size: 1em; /* Adjusted font size */
-      }
-  }
+@media (max-width: 480px) {
+    #keyDisplay {
+        font-size: 2vw; /* Even smaller font size for very small devices */
+    }
 
+}
+/* Adjustments for Mobile */
+ 
 </style>
 <title>Song Key Finder</title>
 </head>
@@ -73,10 +78,10 @@
       </select>
       <select id="chord1Quality">
         <option value="">Select Chord Quality</option>
-        <option value="0">Major</option>
+        <option value="0">Major (△, ma7, ma9, 6, <i>& 1st note in a / chord</i>)</option>
         <option value="3">Minor</option>
-        <option value="5">Dominant</option>
-        <option value="7">Diminished</option>
+        <option value="5">Dominant (7, 9, 11, 13)</option>
+        <option value="7">Diminished/mi7b5</option>
      
       </select>
     </div>
@@ -101,10 +106,10 @@
       </select>
       <select id="chord2Quality">
         <option value="">Select Chord Quality</option>
-        <option value="0">Major</option>
-        <option value="3">Minor</option>
-        <option value="5">Dominant</option>
-        <option value="7">Diminished</option>
+        <option value="0">Major (△, ma7, ma9, 6, <i>& 1st note in a / chord</i>)</option>
+         <option value="3">Minor</option>
+        <option value="5">Dominant (7, 9, 11, 13)</option>
+        <option value="7">Diminished/mi7b5</option>
       </select>
    
     </div>
@@ -129,10 +134,10 @@
       </select>
       <select id="chord3Quality">
         <option value="">Select Chord Quality</option>
-        <option value="0">Major</option>
+        <option value="0">Major (△, ma7, ma9, 6, <i>& 1st note in a / chord</i>)</option>
         <option value="3">Minor</option>
-        <option value="5">Dominant</option>
-        <option value="7">Diminished</option>
+        <option value="5">Dominant (7, 9, 11, 13)</option>
+        <option value="7">Diminished/mi7b5</option>
         <br>
       </select>
   
@@ -159,10 +164,10 @@
       </select>
       <select id="chord4Quality">
         <option value="">Select Chord Quality</option>
-        <option value="0">Major</option>
+        <option value="0">Major (△, ma7, ma9, 6, <i>& 1st note in a / chord</i>)</option>
         <option value="3">Minor</option>
-        <option value="5">Dominant</option>
-        <option value="7">Diminished</option>
+        <option value="5">Dominant (7, 9, 11, 13)</option>
+        <option value="7">Diminished/mi7b5</option>
         <br>
       </select>
     </div>
@@ -188,10 +193,10 @@
       </select>
       <select id="chord5Quality">
         <option value="">Select Chord Quality</option>
-        <option value="0">Major</option>
+        <option value="0">Major (△, ma7, ma9, 6, <i>& 1st note in a / chord</i>)</option>
         <option value="3">Minor</option>
-        <option value="5">Dominant</option>
-        <option value="7">Diminished</option>
+        <option value="5">Dominant (7, 9, 11, 13)</option>
+        <option value="7">Diminished/mi7b5</option>
         <br>
       </select>
     </div>
@@ -215,10 +220,10 @@
       </select>
       <select id="chord6Quality">
         <option value="">Select Chord Quality</option>
-        <option value="0">Major</option>
+        <option value="0">Major (△, ma7, ma9, 6, <i>& 1st note in a / chord</i>)</option>
         <option value="3">Minor</option>
-        <option value="5">Dominant</option>
-        <option value="7">Diminished</option>
+        <option value="5">Dominant (7, 9, 11, 13)</option>
+        <option value="7">Diminished/mi7b5</option>
         <br>
       </select>
     </div>
@@ -230,7 +235,7 @@
 
 
 
-<p id="keyDisplay">^^^Select the chords of your song ^^^ </p>
+<p id="keyDisplay">↑Select the chords of your song </p>
 
 <script>
 
