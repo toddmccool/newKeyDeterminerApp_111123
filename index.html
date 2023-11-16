@@ -22,13 +22,31 @@
 
   
 
+   
+
+
   select {
-      max-width: 300px; 
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-      font-size: 1em;
-  }
+    max-width: 300px;
+    width: 100%;
+    padding: 12px; /* Increased padding for larger touch targets */
+    margin: 5px 0;
+    font-size: 1.2em; /* Increased font size */
+    font-weight: bold; /* Make text bold */
+    background-color: #e0e0e0; /* A light grey background for visibility */
+    border: 1px solid #c0c0c0; /* A subtle border */
+    border-radius: 4px; /* Rounded corners for aesthetic */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow here */
+
+/* Transition for a smooth hover effect */
+transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Enhance shadow on hover for better interaction feedback */
+select:hover {
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
   #keyDisplay {
     white-space: nowrap; /* Prevent text from wrapping onto the next line */
     overflow: hidden;   /* Hide overflow */
@@ -40,12 +58,22 @@
     #keyDisplay {
         font-size: 3vw; /* Smaller font size for smaller devices */
     }
+  
+    select {
+        font-size: 1.5em; /* Even larger font size for mobile devices */
+        padding: 15px; /* Slightly larger padding */
+    }
 }
 
 @media (max-width: 480px) {
     #keyDisplay {
         font-size: 2vw; /* Even smaller font size for very small devices */
     }
+    select {
+        font-size: 1.5em; /* Even larger font size for mobile devices */
+        padding: 15px; /* Slightly larger padding */
+    }
+
 
 }
 /* Adjustments for Mobile */
