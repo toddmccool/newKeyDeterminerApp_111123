@@ -36,7 +36,7 @@
     border: 1px solid #c0c0c0; /* A subtle border */
     border-radius: 4px; /* Rounded corners for aesthetic */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow here */
-
+    font-size: inherit; 
 /* Transition for a smooth hover effect */
 transition: box-shadow 0.3s ease-in-out;
 }
@@ -79,11 +79,12 @@ box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 /* Adjustments for Mobile */
  
 </style>
-<title>Song Key Finder</title>
+<title>Song Key Finder _2024</title>
 </head>
 <body>
 
-<h1>Song Key Finder</h1>
+<h2>Song Key Finder</h2>
+<h3>Select 3-6 chords from your song to find out the key</h3>
 
  
 <div id="chords">
@@ -264,6 +265,10 @@ box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 
 
 <p id="keyDisplay">↑Select the chords of your song </p>
+then Go to <a href="https://drive.google.com/file/d/1xgGTwJ9qIn_qc4lItU-5c7BN4zv5TEdo/view?usp=sharing" target="_blank">Harmonized Major Scales - the chords in all the keys</a>
+and
+<a href="https://toddmccool.github.io/chordprog124/index.html#basicApp" target="_blank">todd's Pop Progression Finder</a>.
+
 
 <script>
 
@@ -280,21 +285,18 @@ var chordQualityMapping = {
     'Diminished': '7'
 };
 var keyChordMapping = {
-    'C major - C (I) - Dmi (ii) - Emi (iii) - F (IV) - G(7) (V) - Ami (vi) - Bdim (Bmi7b5) (G/B) (vii)': ['000', '023', '043', '050', '070', '075', '093', '117'],
-    'Db major - Db (I) - Ebmi (ii) - Fmi (iii) - Gb (IV) - Ab(7) (V) - Bbmi (vi) - Cdim (Cmi7b5) (Ab/C) (vii)': ['010', '033', '053', '060', '080', '085', '103', '007'],
-    'D major - D (I) - Emi (ii) - F#mi (iii) - G (IV) - A(7) (V) - Bmi (vi) - C#dim (C#mi7b5) (A/C#) (vii)': ['020', '043', '063', '070', '090', '095', '113', '017'],
-    'Eb major - Eb (I) - Fmi (ii) - Gmi (iii) - Ab (IV) - Bb(7) (V) - Cmi (vi) - Ddim (Dmi7b5) (Bb/D) (vii)': ['030', '053', '073', '080', '100', '105', '003', '027'],
-    'E major - E (I) - F#mi (ii) - G#mi (iii) - A (IV) - B(7) (V) - C#mi (vi) - D#dim (D#mi7b5) (B/D#) (vii)': ['040', '063', '083', '090', '110', '115', '013', '037'],
-    'F major - F (I) - Gmi (ii) - Ami (iii) - Bb (IV) - C(7) (V) - Dmi (vi) - Edim (Emi7b5) (C/E) (vii)': ['050', '073', '093', '100', '120', '125', '023', '047'],
-    'Gb major - Gb (I) - Abmi (ii) - Bbmi (iii) - B (IV) - Db(7) (V) - Ebmi (vi) - Fdim (Fmi7b5) (Db/F) (vii)': ['060', '083', '103', '110', '010', '015', '033', '057'],
-    'G major - G (I) - Ami (ii) - Bmi (iii) - C (IV) - D(7) (V) - Emi (vi) - F#dim (F#mi7b5) (D/F#) (vii)': ['070', '093', '113', '000', '020', '025', '043', '067'],
-    'Ab major - Ab (I) - Bbmi (ii) - Cmi (iii) - Db (IV) - Eb(7) (V) - Fmi (vi) - Gdim (Gmi7b5) (Eb/G) (vii)': ['080', '103', '123', '130', '030', '035', '053', '077'],
-    'A major - A (I) - Bmi (ii) - C#mi (iii) - D (IV) - E(7) (V) - F#mi (vi) - G#dim (G#mi7b5) (E/G#) (vii)': ['090', '113', '133', '140', '160', '045', '063', '087'],
-    'Bb major - Bb (I) - Cmi (ii) - Dmi (iii) - Eb (IV) - F(7) (V) - Gmi (vi) - Adim (Ami7b5) (F/A) (vii)': ['100', '003', '023', '030', '050', '055', '073', '097'],
-    'B major - B (I) - C#mi (ii) - D#mi (iii) - E (IV) - F#(7) (V) - G#mi (vi) - A#dim (A#mi7b5) (F#/A#) (vii)': ['110', '013', '003', '013', '180', '065', '083', '107']
-,
-
-
+    'C major : <sup>(I)</sup> C - <sup>(ii)</sup> Dmi - <sup>(iii)</sup> Emi - <sup>(IV)</sup> F __ F7 <sup>(V)</sup> G __ G7 <sup>(vi)</sup> Ami - <sup>(vii)</sup> Bdim __Bmi7b5__G/B <br>': ['000', '023', '043', '050', '070', '075', '093', '117'],
+    'Db major : <sup>(I)</sup> Db - <sup>(ii)</sup> Ebmi - <sup>(iii)</sup> Fmi - <sup>(IV)</sup> Gb __ Gb7 <sup>(V)</sup> Ab __ Ab7 <sup>(vi)</sup> Bbmi - <sup>(vii)</sup> Cdim __Cmi7b5__Ab/C <br>': ['010', '033', '053', '060', '080', '085', '103', '007'],
+    'D major : <sup>(I)</sup> D - <sup>(ii)</sup> Emi - <sup>(iii)</sup> F#mi - <sup>(IV)</sup> G __ G7 <sup>(V)</sup> A __ A7 <sup>(vi)</sup> Bmi - <sup>(vii)</sup> C#dim __C#mi7b5__A/C# <br>': ['020', '043', '063', '070', '090', '095', '113', '017'],
+    'Eb major : <sup>(I)</sup> Eb - <sup>(ii)</sup> Fmi - <sup>(iii)</sup> Gmi - <sup>(IV)</sup> Ab __ Ab7 <sup>(V)</sup> Bb __ Bb7 <sup>(vi)</sup> Cmi - <sup>(vii)</sup> Ddim __Dmi7b5__Bb/D <br>': ['030', '053', '073', '080', '100', '105', '003', '027'],
+    'E major : <sup>(I)</sup> E - <sup>(ii)</sup> F#mi - <sup>(iii)</sup> G#mi - <sup>(IV)</sup> A __ A7 <sup>(V)</sup> B __ B7 <sup>(vi)</sup> C#mi - <sup>(vii)</sup> D#dim __D#mi7b5__B/D# <br>': ['040', '063', '083', '090', '110', '115', '013', '037'],
+    'F major : <sup>(I)</sup> F - <sup>(ii)</sup> Gmi - <sup>(iii)</sup> Ami - <sup>(IV)</sup> Bb __ Bb7 <sup>(V)</sup> C __ C7 <sup>(vi)</sup> Dmi - <sup>(vii)</sup> Edim __Emi7b5__C/E <br>': ['050', '073', '093', '100', '120', '125', '023', '047'],
+    'Gb major : <sup>(I)</sup> Gb - <sup>(ii)</sup> Abmi - <sup>(iii)</sup> Bbmi - <sup>(IV)</sup> B __ B7 <sup>(V)</sup> Db __ Db7 <sup>(vi)</sup> Ebmi - <sup>(vii)</sup> Fdim __Fmi7b5__Db/F <br>': ['060', '083', '103', '110', '010', '015', '033', '057'],
+    'G major : <sup>(I)</sup> G - <sup>(ii)</sup> Ami - <sup>(iii)</sup> Bmi - <sup>(IV)</sup> C __ C7 <sup>(V)</sup> D __ D7 <sup>(vi)</sup> Emi - <sup>(vii)</sup> F#dim __F#mi7b5__D/F# <br>': ['070', '093', '113', '000', '020', '025', '043', '067'],
+    'Ab major : <sup>(I)</sup> Ab - <sup>(ii)</sup> Bbmi - <sup>(iii)</sup> Cmi - <sup>(IV)</sup> Db __ Db7 <sup>(V)</sup> Eb __ Eb7 <sup>(vi)</sup> Fmi - <sup>(vii)</sup> Gdim __Gmi7b5__Eb/G <br>': ['080', '103', '123', '130', '030', '035', '053', '077'],
+    'A major : <sup>(I)</sup> A - <sup>(ii)</sup> Bmi - <sup>(iii)</sup> C#mi - <sup>(IV)</sup> D __ D7 <sup>(V)</sup> E __ E7 <sup>(vi)</sup> F#mi - <sup>(vii)</sup> G#dim __G#mi7b5__E/G# <br>': ['090', '113', '133', '140', '160', '045', '063', '087'],
+    'Bb major : <sup>(I)</sup> Bb - <sup>(ii)</sup> Cmi - <sup>(iii)</sup> Dmi - <sup>(IV)</sup> Eb __ Eb7 <sup>(V)</sup> F __ F7 <sup>(vi)</sup> Gmi - <sup>(vii)</sup> Adim __Ami7b5__F/A <br>': ['100', '003', '023', '030', '050', '055', '073', '097'],
+    'B major : <sup>(I)</sup> B - <sup>(ii)</sup> C#mi - <sup>(iii)</sup> D#mi - <sup>(IV)</sup> E __ E7 <sup>(V)</sup> F# __ F#7 <sup>(vi)</sup> G#mi - <sup>(vii)</sup> A#dim __A#mi7b5__F#/A# <br>': ['110', '013', '040', '180', '065', '083', '107'],
 
     'C major with a jazzy/melodic Fmi (iv)': ['000', '023', '043', '050', '053', '070', '075', '093', '117'],
     'Db major with a jazzy/melodic Gbmi (iv)': ['010', '033', '053', '060', '063', '080', '085', '103', '007'],
@@ -350,21 +352,18 @@ var keyChordMapping = {
     'F mixoLydian - F major scale with Eb(7) (bVII)': ['100', '003', '000', '023', '030', '050', '055', '073', '097'], // A#/Bb major: A#, Cm, Dm, D#, F, F7, Gm, Fm (Cdim replaced with Fm)
     'Gb mixoLydian - Gb major scale with E(7) (bVII)': ['110', '013', '010', '003', '013', '180', '065', '083', '107'] , // B major: B, C#m, D#m, E, F#, F#7, G#m, Em (Bbdim replaced with Em)
 
-
-'C harmonic minor (Spanish) or Eb Major with a Soulful III)': ['003', '030', '053', '080', '070', '075'], // C harmonic minor: Cm, Fm, Ab, G, G7
-'C# harmonic minor (Spanish) or E Major with a Soulful III)': ['013', '040', '063', '090', '080', '085'], // C#/Db harmonic minor: C#m, F#m, A, G#, G#7
-'D harmonic minor (Spanish) or F Major with a Soulful III)': ['023', '050', '073', '100', '090', '095'], // D harmonic minor: Dm, Gm, Bb, A, A7
-'Eb harmonic minor (Spanish) or Gb Major with a Soulful III)': ['033', '060', '083', '110', '100', '105'], // D#/Eb harmonic minor: Ebm, Abm, B, Bb, Bb7
-'E harmonic minor (Spanish) or G Major with a Soulful III)': ['043', '070', '093', '000', '110', '115'], // E harmonic minor: Em, Am, C, B, B7
-'F harmonic minor (Spanish) or Ab Major with a Soulful III)': ['053', '080', '103', '010', '000', '005'], // F harmonic minor: Fm, Bbm, Db, C, C7
-'Gb harmonic minor (Spanish) or A Major with a Soulful III)': ['063', '090', '113', '020', '010', '015'], // F#/Gb harmonic minor: F#m, Bm, D, C#, D7
-'G harmonic minor (Spanish) or Bb Major with a Soulful III)': ['073', '100', '003', '030', '020', '025'], // G harmonic minor: Gm, Cm, Eb, D, D7
-'Ab harmonic minor (Spanish) or B Major with a Soulful III)': ['083', '110', '013', '040', '030', '035'], // G#/Ab harmonic minor: G#m, C#m, E, Eb, E7
-'A harmonic minor (Spanish) or C Major with a Soulful III)': ['093', '000' , '023', '050', '040', '045'], // A harmonic minor: Am, Dm, F, E, E7
-'Bb harmonic minor (Spanish) or Db Major with a Soulful III)': ['103', '010', '033', '060', '050', '055'], // A#/Bb harmonic minor: Bbm, Ebm, F#, F, F7
-'B harmonic minor (Spanish) or D Major with a Soulful III)': ['113', '020', '043', '070', '060', '065'] // B harmonic minor: Bm, Em, G, F#, G7
+    'C# harmonic minor (Spanish) or E Phrygian Dominant (E Major with a Soulful III or III7)': ['013', '040', '063', '090', '080', '085'], // C#/Db harmonic minor: C#m, F#m, A, G#, G#7
+    'D harmonic minor (Spanish) or F Phrygian Dominant (F Major with a Soulful III or III7)': ['023', '050', '073', '100', '090', '095'], // D harmonic minor: Dm, Gm, Bb, A, A7
+    'Eb harmonic minor (Spanish) or Gb Phrygian Dominant (Gb Major with a Soulful III or III7)': ['033', '060', '083', '110', '100', '105'], // D#/Eb harmonic minor: Ebm, Abm, B, Bb, Bb7
+    'E harmonic minor (Spanish) or G Phrygian Dominant (G Major with a Soulful III or III7)': ['043', '070', '093', '000', '110', '115'], // E harmonic minor: Em, Am, C, B, B7
+    'F harmonic minor (Spanish) or Ab Phrygian Dominant (Ab Major with a Soulful III or III7)': ['053', '080', '103', '010', '000', '005'], // F harmonic minor: Fm, Bbm, Db, C, C7
+    'Gb harmonic minor (Spanish) or A Phrygian Dominant (A Major with a Soulful III or III7)': ['063', '090', '113', '020', '010', '015'], // F#/Gb harmonic minor: F#m, Bm, D, C#, D7
+    'G harmonic minor (Spanish) or Bb Phrygian Dominant (Bb Major with a Soulful III or III7)': ['073', '100', '003', '030', '020', '025'], // G harmonic minor: Gm, Cm, Eb, D, D7
+    'Ab harmonic minor (Spanish) or B Phrygian Dominant (B Major with a Soulful III or III7)': ['083', '110', '013', '040', '030', '035'], // G#/Ab harmonic minor: G#m, C#m, E, Eb, E7
+    'A harmonic minor (Spanish) or C Phrygian Dominant (C Major with a Soulful III or III7)': ['093', '000', '023', '050', '040', '045'], // A harmonic minor: Am, Dm, F, E, E7
+    'Bb harmonic minor (Spanish) or Db Phrygian Dominant (Db Major with a Soulful III or III7)': ['103', '010', '033', '060', '050', '055'], // A#/Bb harmonic minor: Bbm, Ebm, F#, F, F7
+    'B harmonic minor (Spanish) or D Phrygian Dominant (D Major with a Soulful III or III7)': ['113', '020', '043', '070', '060', '065'] // B harmonic minor: Bm, Em, G, F#, G7
 };
-
 
 
 
@@ -403,6 +402,19 @@ var invalidChordCombos = {
 function combineNoteAndQuality(note, quality) {
     return note + quality;
 }
+
+
+function adjustChordSelectorsSize() {
+    const keyDisplayText = document.getElementById('keyDisplay').textContent;
+    const chordSelectors = document.querySelectorAll('.chord-selection select');
+    const newSize = keyDisplayText ? '0.8em' : '1.2em'; // 0.8em is 2/3 of 1.2em
+
+    chordSelectors.forEach(select => {
+        select.style.fontSize = newSize;
+    });
+}
+
+
 function findPossibleKeys(selectedChords) {
     let possibleKeys = [];
     console.log("Selected chords: ", selectedChords);
@@ -442,8 +454,9 @@ function updateKeyDisplay() {
             document.getElementById('keyDisplay').textContent = 'No matching key found. The Song may modulate or be in multiple keys, Please revise selections or enter more chords or just the chords from a single section .';
         }
     } else {
-        document.getElementById('keyDisplay').textContent = 'Select at least 3 chords to find possible keys.';
-    }
+    document.getElementById('keyDisplay').textContent = 'Select at least 3 chords to find possible keys.';
+} 
+adjustChordSelectorsSize();  
 }
 
 
